@@ -30,13 +30,13 @@ class Tank:
 
     def update(self):
         """Updates the tank's image coordinate"""
-        if self.moving_right:
+        if self.moving_right and self.rect.right < self.screen_rect.right:
             self.x += self.settings.tank_speed
-        if self.moving_left:
+        if self.moving_left and self.rect.left > 0:
             self.x -= self.settings.tank_speed
-        if self.moving_up:
+        if self.moving_up and self.rect.top > self.screen_rect.top:
             self.y -= self.settings.tank_speed
-        if self.moving_down:
+        if self.moving_down and self.rect.bottom < self.screen_rect.bottom:
             self.y += self.settings.tank_speed
 
         self.rect.x = self.x
